@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container-app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    /* padding-top: 50px; */
+    align-items: center;
+    border: 1px solid black;
+    height: 450px; 
+}

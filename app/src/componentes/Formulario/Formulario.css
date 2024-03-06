@@ -1,0 +1,16 @@
+.formulario{
+    border: 1px solid red;
+    width: 80%;
+    height: 300px;
+    margin: auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form-ppal{
+    display: flex;
+    justify-content: space-between;
+
+}
+
