@@ -1,16 +1,96 @@
 .formulario{
-    border: 1px solid red;
-    width: 80%;
-    height: 300px;
-    margin: auto;
+    border: 2px solid black;
+    box-shadow: 10px 10px 0px 2px black;
+    border-radius: 20px;
+    width: 550px; 
+    height: 330px;
+    margin-top: 70px;
+    margin-bottom: 50px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: beige;
 }
+
+/* DIV de icono y nombre de contacto */
 .form-ppal{
     display: flex;
-    justify-content: space-between;
-
+    font-family: "Roboto Mono", monospace;
+    justify-content: space-between; 
+    /* justify-content: space-around; */
 }
 
+.icono-add{
+    font-size: 80px;
+}
+
+
+label{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+}
+
+/* DIV con los otros input de datos a completar */
+.form-detalles{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.input-nombre, .input-email, .input-dni, .input-direccion, .input-celular{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-nombre{
+    width: 70%;
+}
+
+.input-dni, .input-celular{
+    width: 30%;
+}
+
+/* sacar las flechitas de los input de tipo numero*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-email, .input-direccion{
+    width: 60%;
+}
+
+input{
+    height: 30px;
+    padding: 5px;
+    font-family: "Roboto Mono", monospace;
+    box-shadow: 1px 1px 5px 1px rgb(167, 166, 166);
+}
+
+/* Boton agregar contacto */
+.btn-add{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+
+.btn-add .btn{
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 1px rgb(131, 130, 130);
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    font-family: "Roboto Mono", monospace;
+    cursor: pointer;
+}
+
+.btn-add .btn:hover{
+    background-color: rgb(168, 91, 168);
+}

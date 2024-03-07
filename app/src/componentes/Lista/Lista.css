@@ -1,0 +1,36 @@
+.container-lista{
+    border: 2px solid black;
+    box-shadow: 10px 10px 0px 2px black;
+    border-radius: 20px;
+    width: 550px; 
+    margin-top: 70px;
+    margin-bottom: 50px;
+    padding: 50px;
+    /* display: flex; */
+    /* flex-direction: column;
+    justify-content: space-between; */
+    background-color: beige;
+}
+
+.container-lista div{
+    display: flex;
+}
+
+.container-lista li{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 4px dotted black;
+
+}
+
+div p{
+    font-weight: 800;
+}
+
+.cont-cel{
+    justify-content: space-between;
+}
+
+.cont-cel span{
+    display: flex;
+}

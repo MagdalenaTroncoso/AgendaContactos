@@ -3,8 +3,6 @@ import './App.css'
 import {Formulario} from './componentes/Formulario/Formulario' //Importo Formulario.jsx
 import {Lista} from './componentes/Lista/Lista' //Importo Lista.jsx
 import {Filtrar} from './componentes/Filtrar/Filtrar' //Importo Filtrar.jsx
-
-
 import React from 'react';
 
 function App() {
@@ -126,19 +124,17 @@ function App() {
     <>
     <section className='container-app'>
 
-      <h1>LISTA DE CONTACTOS</h1>
+      <h1>AGENDA DE CONTACTOS</h1>
       
       <div>
         <Formulario
             contactos={contactos}
             setContactos={setContactos}
-
             nombre={nombre}
             email={email}
             dni={dni}
             direccion={direccion}
             celular={celular}
-            
             add={add}
             inputNombre={inputNombre}
             inputEmail={inputEmail}
@@ -150,20 +146,34 @@ function App() {
       </div>
 
       {/* Boton de Mostrar/ocultar agenda. Estoy renderizando aca adentro Lista.jsx y Filtrar.jsx */}
-
-      <div>
-        <button onClick={toggleAgenda}> {mostrarAgenda ? 'Ocultar agenda' : 'Mostrar agenda'} </button>
+      
+      <div className='desplegar-agenda'>
+        <button onClick={toggleAgenda}> {mostrarAgenda ? 'OCULTAR AGENDA' : 'MOSTRAR AGENDA'} </button>
         {mostrarAgenda && (
           <>
-            <Lista setContactos={setContactos} contactos={contactos} remove={remove} />
-            <Filtrar
-              setContactos={setContactos}
-              contactos={contactos}
-              buscar={buscar}
-              screen={screen}
-              setScreen={setScreen}
-              handleInputChange={handleInputChange}
-            />
+          <div className='lista-busqueda'>
+            <div className='busqueda'>
+                <Filtrar
+                  setContactos={setContactos}
+                  contactos={contactos}
+                  buscar={buscar}
+                  screen={screen}
+                  setScreen={setScreen}
+                  handleInputChange={handleInputChange}
+                />
+            </div>
+
+            <div className='lista-desplegada'>
+              {/* Condicional--- Si hay contactos agendados: muestro agenda, sino: "no hay contactos agendados" */}
+              {contactos.length > 0 ? (
+                <Lista setContactos={setContactos} contactos={contactos} remove={remove} />
+              ) : (
+                <p className='no-contact'>Aun no hay contactos agendados.</p>
+              )}
+            </div>
+
+          </div>
+
           </>
         )}
       </div> 

@@ -13,19 +13,20 @@ const Filtrar = (props) => {
     return(
         <>
         <section>
-            <div>
+            <div className='cont-input-busqueda'>
                 <input type="text" value={screen} onChange={handleInputChange} placeholder="Buscar contacto" className="input-filter" />
                 <FontAwesomeIcon className="fa-search" icon={faSearch} />
             </div>
-            <div>
+
+            <div className='cont-busqueda'>
                 <ul className="ul-filter">
                     {screen && buscar().map((contacts, index) => (
                         <li key={index}>
-                            <p className="name">{contacts.nombre}</p>
-                            <p>{contacts.email}</p>
-                            <p>{contacts.dni}</p>
-                            <p>{contacts.direccion}</p>
-                            <p>{contacts.celular}</p>
+                            <p className="name">Nombre y apellido: {contacts.nombre}</p>
+                            <p>Email: {contacts.email}</p>
+                            <p>DNI: {contacts.dni}</p>
+                            <p>Direccion: {contacts.direccion}</p>
+                            <p>Cel: {contacts.celular}</p>
                         </li>
                     ))}
                 </ul>

@@ -7,8 +7,61 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around; 
-    /* padding-top: 50px; */
+    padding-top: 70px;
+    padding-bottom: 70px;
     align-items: center;
-    border: 1px solid black;
-    height: 450px; 
+} 
+
+.container-app h1{
+    background-color: beige;
+    border: 2px solid black;
+    box-shadow: 10px 10px 0px 2px black;
+    border-radius: 10px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-size: 35px;
+    text-shadow: -8px -5px 20px rgb(151, 151, 151);
+}
+
+.desplegar-agenda{
+    border: 2px solid black;
+    box-shadow: 10px 10px 0px 2px black;
+    border-radius: 20px;
+    background-color: beige;
+    width: 550px; 
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.desplegar-agenda button{
+    border: none;
+    background-color: beige;
+    font-size: 30px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.desplegar-agenda:active, .desplegar-agenda button:active{
+    background-color: rgb(168, 91, 168);
+}
+
+
+
+
+
+
+.lista-busqueda{
+    position: absolute;
+    top: 80px;
+}
+
+.lista-desplegada .no-contact{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }

@@ -14,12 +14,12 @@ const Formulario = (props) => {
 
     return(
         <>
-        <section>
+        <section className='container-form'>
             <form action="" className='formulario'>
                 <div className='form-ppal'>
-                    <span>< FontAwesomeIcon className='add' icon={faUserPlus}/></span>
+                    <span>< FontAwesomeIcon className='icono-add' icon={faUserPlus}/></span>
                     
-                    <div>
+                    <div className='input-nombre'>
                         <label htmlFor=""> Apellido y nombre </label>
                         <input type="text" value={nombre} onChange={inputNombre} placeholder='María Perez'/>
                     </div>
@@ -27,23 +27,30 @@ const Formulario = (props) => {
                 </div>
 
                 <div className='form-detalles'>
-                    <div>
+                    <div className='input-email'>
                         <label htmlFor=""> E-mail </label>
                         <input type="email" value={email} onChange={inputEmail} placeholder='maria@perez.com'/>
                     </div>
+                    
+                    <div className='input-dni'>
+                        <label htmlFor=""> DNI </label>
+                        <input type="number" value={dni} onChange={inputDni} placeholder='12345678'/>
+                    </div>
+                    
+                    <div className='input-direccion'>
+                        <label htmlFor=""> Direccion </label>
+                        <input type="text" value={direccion} onChange={inputDireccion} placeholder='Av. Callao 1234'/>
+                    </div>
 
-                    <label htmlFor=""> DNI </label>
-                    <input type="number" value={dni} onChange={inputDni} placeholder='12345678'/>
-
-                    <label htmlFor=""> Direccion </label>
-                    <input type="text" value={direccion} onChange={inputDireccion} placeholder='Av. Callao 1234'/>
-
-                    <label htmlFor=""> Celular </label>
-                    <input type="number" value={celular} onChange={inputCelular} placeholder='011-12345678'/>
+                    <div className='input-celular'>
+                        <label htmlFor=""> Celular </label>
+                        <input type="number" value={celular} onChange={inputCelular} placeholder='011-12345678'/>
+                    </div>
+                    
                 </div>
 
-                <span>
-                    <button onClick={(e) => {e.preventDefault(); add();}}>Agregar contacto</button> 
+                <span className='btn-add'>
+                    <button className='btn' onClick={(e) => {e.preventDefault(); add();}}>GUARDAR CONTACTO</button> 
                 </span>
 
 

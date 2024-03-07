@@ -1,0 +1,39 @@
+/* Input de busqueda */
+.cont-input-busqueda{
+    display: flex;
+    justify-content: center;
+}
+
+/* Icono de Lupa */
+.fa-search{
+    font-size: 40px;
+    margin-left: 5px;
+}
+
+
+.cont-busqueda{
+    width: 550px; 
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 20px;
+    width: 550px; 
+    background-color: beige;
+}
+
+.input-filter{
+    width: 80%;
+}
+
+.ul-filter li{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    list-style: none;
+    border-bottom: 1px solid rgb(139, 68, 139);
+    
+}
+
+.ul-filter li p{
+    font-weight: 500;
+    color: rgb(107, 51, 107);
+}
+

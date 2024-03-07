@@ -12,22 +12,40 @@ const Lista = (props) => {
     const { contactos, remove} = props;
     return(
         <>
-            <div>
-                <ul>
+            <div className='container-lista'>
+                <ol>
                     {contactos.map((contacts, index) => (
                         <li key={index}>
                             <div>
+                                <p>Nombre y apellido: </p>
                                 {contacts.nombre}{" "}
-                                <FontAwesomeIcon className="fa-trash" icon={faTrash} onClick={() => remove(contacts.nombre, contacts.email, contacts.dni, contacts.direccion, contacts.celular)}/>
                             </div>
                             
-                            <div>{contacts.email}</div>
-                            <div>{contacts.dni}</div>
-                            <div>{contacts.direccion}</div>
-                            <div>{contacts.celular}</div> 
+                            <div>
+                                <p>Email: </p>
+                                {contacts.email}
+                            </div>
+
+                            <div>
+                                <p>DNI: </p>
+                                {contacts.dni}
+                            </div>
+
+                            <div>
+                                <p>Direccion:         </p>
+                                {contacts.direccion}
+                            </div>
+
+                            <div className='cont-cel'>
+                                <span>
+                                    <p>Cel: </p>
+                                    {contacts.celular}
+                                </span>
+                                <FontAwesomeIcon className="fa-trash" icon={faTrash} onClick={() => remove(contacts.nombre, contacts.email, contacts.dni, contacts.direccion, contacts.celular)}/>
+                            </div> 
                         </li>
                     ))}
-                </ul>
+                </ol>
             </div>
             
         </>
