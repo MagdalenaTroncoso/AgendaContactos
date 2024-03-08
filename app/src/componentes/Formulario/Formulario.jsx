@@ -1,6 +1,5 @@
 //FORMULARIO.JSX: Permitirá agregar contactos
 
-import {useState} from 'react';  //QUE ONDI ESTO QUE ESTA OPACO
 import React from 'react';
 import './Formulario.css';
 //Importo libreria FontAwesome
@@ -12,9 +11,10 @@ const Formulario = (props) => {
 
     const { nombre, email, dni, direccion, celular, inputNombre, inputEmail, inputDni, inputDireccion, inputCelular,add} = props;
 
+
     return(
         <>
-        <section className='container-form'>
+        <section id='add' className='container-form'>
             <form action="" className='formulario'>
                 <div className='form-ppal'>
                     <span>< FontAwesomeIcon className='icono-add' icon={faUserPlus}/></span>
@@ -52,9 +52,7 @@ const Formulario = (props) => {
                 <span className='btn-add'>
                     <button className='btn' onClick={(e) => {e.preventDefault(); add();}}>GUARDAR CONTACTO</button> 
                 </span>
-
-
-            </form>
+            </form>              
 
         </section>
 

@@ -2,8 +2,7 @@
 
 :root{
     font-family: "Roboto Mono", monospace;
-    background-image: url('./assets/fondo14.png');
-    /* background-repeat: no-repeat; */
+    background-image: url('./assets/fondo.png');
     background-position: center;
     background-size: cover; 
     margin: 0;

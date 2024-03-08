@@ -1,5 +1,5 @@
-import {useState} from 'react' 
-import './App.css'
+import {useState, useEffect} from 'react' 
+import './App.css' 
 import {Formulario} from './componentes/Formulario/Formulario' //Importo Formulario.jsx
 import {Lista} from './componentes/Lista/Lista' //Importo Lista.jsx
 import {Filtrar} from './componentes/Filtrar/Filtrar' //Importo Filtrar.jsx
@@ -11,9 +11,8 @@ function App() {
 
   const [mostrarAgenda, setMostrarAgenda] = useState(false);
 
-  //Estado para almacenar nombres de contactos      
+  //Estado para almacenar contactos      
   const [contactos, setContactos]= useState ([]);                      
-
 
   //Estado para almacenar Apellido y Nombre que escribo en el input
   const [nombre, setNombre]= useState ('');
@@ -30,13 +29,11 @@ function App() {
   //Estado para almacenar celular que escribo en el input
   const [celular, setCelular]= useState ('');
 
-
-
   const [screen, setScreen] = useState("");
 
 
 
-  //Funcion que va a manejar el cambio de dicho input--- input del nombre por ej
+  //Funciones que va a manejar el cambio de los input
   const inputNombre = (event) => {
     setNombre (event.target.value)
   }
@@ -61,22 +58,35 @@ function App() {
     setMostrarAgenda(!mostrarAgenda);
   };
 
-    //FUNCION AGREGAR CONTACTO A LA LISTA
+  // -----LOCAL STORAGE-----
+  useEffect(() => {
+    const storedContact = JSON.parse(localStorage.getItem("contactos")); //localStorage es un obj del navegador para alamacenar datos
+    //JSON.parse convierte una cadena JSON a un obj xq los datos de almacenamiento local se almancenan como cadenas
+    if (storedContact) { //si hay datos almacenados
+      setContactos(storedContact);//se almancenan aca
+    }
+  }, []); //dependencia, se ejecuta una sola vez
+
+
+  //FUNCION AGREGAR CONTACTO A LA LISTA
     const add = () => {
-      //verificar que no esté vacío el input nombre, despues de eliminar los espacios en blanco con trim
-      if (nombre.trim() && email.trim() && dni.trim() && direccion.trim() && celular.trim() !== '') { //trim elimina los espacios en blanco  // !== niego la cadena vacía, es decir està completa
-        //si no està vacio, crea un objeto del contacto con un identificador y el nombre de dicho tarea/contacto
+      //verificar que no estén vacíos los input, despues de eliminar los espacios en blanco con trim
+      if (nombre.trim() && email.trim() && dni.trim() && direccion.trim() && celular.trim() !== '') { // niego la cadena vacía, es decir está completa
+        //si no está vacio, asignamos los datos que se agregaron por el input
         const contactoGenerado = {
-          //id: Date.now (),  //le asigno a cada contacto agregado un nº random, un id unico
-          nombre: nombre,  //Asignamos el name del contacto actual que se está agregando por el input
+          nombre: nombre,
           email: email,
           dni: dni,
           direccion: direccion,
           celular: celular,
         };
-        //copia de los nombres actuales y agrego luego el nuevo nombre al final de la lista
+        //copia de los contactos actuales y agrego luego el nuevo contacto al final de la lista
         const contactosGenerados = [...contactos, contactoGenerado];
         setContactos (contactosGenerados)
+
+        localStorage.setItem("contactos", JSON.stringify(contactosGenerados)); //.setItem almacena un valor
+      //JSON.stringify(contactosGenerados) convierte el array en cadena porque local storage almacena en cadena
+
   
         //Reestablecer el valor del input a una cadena vacia
         setNombre ('')
@@ -106,19 +116,17 @@ function App() {
   //FUNCION ELIMINAR
 
   const remove = (eliminado) => {
-    const index = contactos.findIndex((contacts) => contacts.nombre === eliminado); //una variable que incluye la funcion de filtro antes declarada
-    //el metodo findIndex() que especifica el indice, en este caso del contacto que buscamos
+    const index = contactos.findIndex((contacts) => contacts.nombre === eliminado); 
+    //findIndex() especifica el indice, en este caso del contacto que buscamos
 
     if (index !== -1) {
-      //aca verificamos que encontro el contacto (sin findIndex no encuentra un elemento arroja -1)
-      const newList = [...contactos.slice(0, index), ...contactos.slice(index + 1)]; //creamos una lista nueva que filtra el contacto a eliminar
+      //verifico que encontró el contacto (sin findIndex no encuentra un elemento arroja -1)
+      const newList = [...contactos.slice(0, index), ...contactos.slice(index + 1)]; //creo una lista nueva que filtra el contacto a eliminar
       //para eso primero separamos el array con todos los elementos antes del contacto a eliminar, y con todos los elementos despues del contactoa eliminar
 
       setContactos(newList); //actualizo el estado
     }
   };
-
-  //--------------------------------------------------------------------------------------------------//
 
   return (
     <>
@@ -146,7 +154,6 @@ function App() {
       </div>
 
       {/* Boton de Mostrar/ocultar agenda. Estoy renderizando aca adentro Lista.jsx y Filtrar.jsx */}
-      
       <div className='desplegar-agenda'>
         <button onClick={toggleAgenda}> {mostrarAgenda ? 'OCULTAR AGENDA' : 'MOSTRAR AGENDA'} </button>
         {mostrarAgenda && (

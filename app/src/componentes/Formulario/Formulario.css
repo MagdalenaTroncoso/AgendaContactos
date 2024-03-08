@@ -18,7 +18,6 @@
     display: flex;
     font-family: "Roboto Mono", monospace;
     justify-content: space-between; 
-    /* justify-content: space-around; */
 }
 
 .icono-add{
@@ -93,4 +92,52 @@ input{
 
 .btn-add .btn:hover{
     background-color: rgb(168, 91, 168);
+}
+
+
+.cont-guardadoExitoso{
+    border: 2px solid black;
+    display: flex;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 576px) {
+    .formulario{
+        width: 300px;
+        height: 230px;
+        padding: 15px;
+    }
+
+    .icono-add{
+        font-size: 50px;
+    }
+
+    label{
+        margin-bottom: 5px;
+        font-size: 10px;
+    }
+
+    input{
+        height: 15px;
+    }
+}
+  
+@media screen and (min-width:576px) and (max-width: 768px){
+    .formulario{
+        width: 450px;
+    }
+
+    .icono-add{
+        font-size: 70px;
+    }
+
+    label{
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    input{
+        height: 25px;
+    }
 }

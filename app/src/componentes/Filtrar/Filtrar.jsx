@@ -12,7 +12,7 @@ const Filtrar = (props) => {
 
     return(
         <>
-        <section>
+        <section className='filtrar-section'>
             <div className='cont-input-busqueda'>
                 <input type="text" value={screen} onChange={handleInputChange} placeholder="Buscar contacto" className="input-filter" />
                 <FontAwesomeIcon className="fa-search" icon={faSearch} />

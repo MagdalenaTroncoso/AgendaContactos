@@ -1,7 +1,15 @@
-/* Input de busqueda */
+/* Seccion */
+.filtrar-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor: Input de busqueda + icono lupa*/
 .cont-input-busqueda{
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 /* Icono de Lupa */
@@ -10,26 +18,26 @@
     margin-left: 5px;
 }
 
-
+/* Lista de contactos que se despliega al filtrar */
 .cont-busqueda{
-    width: 550px; 
+    width: 80%;
     padding-left: 50px;
     padding-right: 50px;
     border-radius: 20px;
-    width: 550px; 
     background-color: beige;
 }
 
+/* Input de filtrado */
 .input-filter{
     width: 80%;
 }
 
+/* Estilo de lista de contactos */
 .ul-filter li{
     margin-bottom: 20px;
     padding-bottom: 20px;
     list-style: none;
     border-bottom: 1px solid rgb(139, 68, 139);
-    
 }
 
 .ul-filter li p{
@@ -37,3 +45,26 @@
     color: rgb(107, 51, 107);
 }
 
+
+/* RESPONSIVE */
+@media screen and (max-width: 576px){
+    .input-filter{
+        width: 80%;
+    }
+
+    .cont-busqueda{
+        width: 100%;
+        padding: 8px;
+        font-size: 10px;
+    }  
+    .fa-search{
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width:576px) and (max-width: 768px){
+
+    .fa-search{
+        font-size: 30px;
+    }
+}
